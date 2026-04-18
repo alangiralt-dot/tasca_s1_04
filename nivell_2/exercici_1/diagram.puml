@@ -1,0 +1,19 @@
+@startuml
+skinparam ClassAttributeIconSize 0
+class PokerDie {
+  - figure: string
+  - {static} FIGURES: string
+  - {static} totalRolls: int
+  + roll(): void
+  + getFigure(): string
+  + {static} getTotalRolls(): int
+}
+class DiceCup {
+  - dice: array
+  + rollHand(): void
+  + getHand(): string
+  + addDie(die: PokerDie): void
+  + removeDie(die: PokerDie): void
+}
+DiceCup "1" o-- "0..5" PokerDie
+@enduml

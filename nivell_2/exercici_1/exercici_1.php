@@ -1,0 +1,27 @@
+<?php
+declare(strict_types=1);
+require_once('PokerDie.php');
+require_once('DiceCup.php');
+$cup1 = new DiceCup();
+$die1 = new PokerDie();
+$die2 = new PokerDie();
+$die3 = new PokerDie();
+$die4 = new PokerDie();
+$die5 = new PokerDie();
+$die6 = new PokerDie();
+$cup1->addDie($die1);
+$cup1->addDie($die2);
+$cup1->addDie($die3);
+$cup1->addDie($die4);
+$cup1->addDie($die5);
+$cup1->addDie($die6);
+//$cup1->removeDie($die3);
+$cup1->rollHand();
+echo $cup1->getHand() . PHP_EOL;
+$cup1->rollHand();
+echo $cup1->getHand() . PHP_EOL;
+$die1->roll();
+echo $cup1->getHand() . PHP_EOL;
+$die2->roll();
+echo $cup1->getHand() . PHP_EOL;
+echo 'The total rolls is ' . PokerDie::getTotalRolls();
