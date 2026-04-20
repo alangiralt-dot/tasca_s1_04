@@ -1,0 +1,36 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Movie {
+  - title: string
+  - duration: int
+  - director: string
+  - cinemas: array
+  + getTitle(): string
+  + getDuration(): int
+  + getDirector(): string
+  + getCinemas(): array
+  + getProperty(property: string): int|string
+  + addCinema(id: int, c: Cinema): void
+}
+class Cinema {
+  - name: string
+  - city: string
+  - movies: array
+  + getName(): string
+  + getCity(): string
+  + getMovies(): array
+  + getProperty(property: string): string
+  + addMovie(id: int, m: Movie): void
+}
+class CinemaChain {
+  - movies: array
+  - cinemas: array
+  + getMovies: array
+  + getCinemas: array
+  + getMoviesBy(property: string, value: string|int): array
+  + getLongestMovie(cinemaName: string): ?Movie
+}
+CinemaChain "1" *-- "1..*" Movie
+CinemaChain "1" *-- "1..*" Cinema
+Movie "1..*" o--o "1..*" Cinema
+@enduml
